@@ -82,9 +82,9 @@ const CREATIVE = {
     { title: 'School Frame', src: '/images/Facebook Profile & Picture Frame/fb4.png' },
   ],
   'Mock-ups': [
-    { title: 'Jersey 01', src: '/images/Mock-up/jersey1.png' },
-    { title: 'Jersey 02', src: '/images/Mock-up/jersey2.png' },
-    { title: 'Jersey 03', src: '/images/Mock-up/jersey3.png' },
+    { title: 'Jersey 01', src: '/images/Mock-up/jersey1.jpg' },
+    { title: 'Jersey 02', src: '/images/Mock-up/jersey2.jpg' },
+    { title: 'Jersey 03', src: '/images/Mock-up/jersey3.jpg' },
     { title: 'Lace 01', src: '/images/Mock-up/lace1.png' },
     { title: 'Lace 02', src: '/images/Mock-up/lace2.png' },
   ],
@@ -140,7 +140,7 @@ function App() {
       <div className="collection-heading"><div><p className="eyebrow">THE COLLECTION</p><h2>EXPLORE THE BENTO</h2></div><span>Pick a compartment to open its story <ArrowUpRight size={16} /></span></div>
       <section className="bento-tray" aria-label="Portfolio compartments"><div className="bento-grid">
         {SECTIONS.map(({ id, number, label, eyebrow, description, icon: Icon, short, large }) => <button key={id} className={`bento-cell ${large ? 'bento-large' : ''}`} onClick={() => setOpen(id)}><div className="cell-inner"><span className="cell-icon"><Icon size={29} /></span><span className="cell-number">{number} / {short}</span><Icon className="cell-watermark" strokeWidth={1} /><div className="cell-copy"><small>{eyebrow}</small><h3>{label}</h3><p>{description}</p></div><span className="cell-arrow"><ArrowUpRight size={24} /></span></div></button>)}
-        <div className="bento-photo">{gridImage ? <img src={gridImage} alt="Journalism workspace with newspaper, camera and notebook" onError={() => { if (gridImage.endsWith('.png')) setGridImage('/images/grid/grid.jpg'); else if (gridImage.endsWith('.jpg')) setGridImage('/images/grid/grid.jpeg'); else if (gridImage.endsWith('.jpeg')) setGridImage('/images/grid/grid.webp'); else setGridImage(null); }} /> : <div className="grid-photo-missing">Place your photo at<br/><code>public/images/grid/grid.png</code></div>}<div className="photo-caption"><span>BEHIND EVERY STORY</span><strong>OBSERVE. CREATE. CONNECT.</strong></div></div>
+        <div className="bento-photo">{gridImage ? <img src={gridImage} alt="Journalism workspace with newspaper, camera and notebook" onError={() => { if (gridImage.endsWith('.png')) setGridImage('/images/grid/grid.jpg'); else if (gridImage.endsWith('.jpg')) setGridImage('/images/grid/grid.jpeg'); else if (gridImage.endsWith('.jpeg')) setGridImage('/images/grid/grid.webp'); else setGridImage(null); }} /> : <div className="grid-photo-missing">Place your photo at<br /><code>public/images/grid/grid.png</code></div>}<div className="photo-caption"><span>BEHIND EVERY STORY</span><strong>OBSERVE. CREATE. CONNECT.</strong></div></div>
       </div></section>
       <footer className="page-footer"><span>“Every story deserves to be told well.”</span><span>ROMMEL FANGOT JR. / PORTFOLIO 2026</span></footer>
     </main>
