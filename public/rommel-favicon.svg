@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Rommel Fangot Jr. journalism logo">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#096844"/><stop offset=".55" stop-color="#00472f"/><stop offset="1" stop-color="#00251d"/></linearGradient>
+ <linearGradient id="shine" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffffff" stop-opacity=".19"/><stop offset=".5" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
+</defs>
+<rect x="2" y="2" width="252" height="252" rx="43" fill="url(#bg)"/>
+<path d="M40 22H220L67 234H20V76Z" fill="url(#shine)"/>
+<rect x="5" y="5" width="246" height="246" rx="40" fill="none" stroke="#3ab37b" stroke-width="2" opacity=".65"/>
+<!-- Editorial serif R with newspaper column -->
+<path d="M43 55H135C185 55 210 79 210 114C210 140 195 159 173 166L217 211H163L120 169H101V211H62V85H43Z" fill="#fffaf0"/>
+<path d="M101 89V136H133C157 136 168 128 168 113C168 97 157 89 133 89Z" fill="#00452f"/>
+<!-- rolled newspaper -->
+<rect x="44" y="103" width="28" height="108" rx="11" fill="#fffaf0" stroke="#003c2c" stroke-width="3"/>
+<path d="M51 125H65M51 139H65M51 153H65M51 167H65M51 181H65M51 195H65" stroke="#00452f" stroke-width="4" stroke-linecap="round"/>
+<!-- camera aperture overlay -->
+<circle cx="145" cy="113" r="37" fill="#003d2b" stroke="#fffaf0" stroke-width="3"/>
+<path d="M145 78L155 101L132 105Z M176 93L158 109L147 91Z M178 126L154 124L160 103Z M149 148L144 125L165 123Z M113 132L135 117L144 138Z M112 99L135 105L128 126Z" fill="#fffaf0"/>
+<path d="M176 93L158 109L147 91Z" fill="#f43d36"/>
+</svg>
