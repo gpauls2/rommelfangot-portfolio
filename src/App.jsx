@@ -45,6 +45,11 @@ const JOURNALISM = {
       LINK('Community photo exhibit highlights LGBTQIA+ stories', 'https://northluzonmonitor.com/community-photo-exhibit-highlights-lgbtqia-stories/'),
       LINK('Technology seen to hike HIV/AIDS cases in CAR', 'https://northluzonmonitor.com/technology-seen-to-hike-hiv-aids-cases-in-car/'),
       LINK('Baguio GSO expands black soldier fly program', 'https://northluzonmonitor.com/baguio-gso-expands-black-soldier-fly-program/'),
+      LINK('Baguio barangays get ₱200K each', 'https://northluzonmonitor.com/baguio-barangays-get-p200k-each/'),
+      LINK('Magalong joins call for stricter implementation of RA 10631', 'https://northluzonmonitor.com/magalong-joins-call-for-stricter-implementation-of-ra-10631/'),
+      LINK('Baguio artists put finishing touches on SONA effigy', 'https://northluzonmonitor.com/baguio-artists-put-finishing-touches-on-sona-effigy/'),
+      LINK('Magalong urges commuters to report erring taxi drivers through 911', 'https://northluzonmonitor.com/magalong-urges-commuters-to-report-erring-taxi-drivers-through-911/'),
+      LINK("Anino't Sinag celebrates Baguio street photography", 'https://northluzonmonitor.com/aninot-sinag-celebrates-baguio-street-photography/'),
     ],
     'Broadcast': [LINK('Co-host · HIV/AIDS Update', 'https://www.facebook.com/share/v/14iLEcRGwnt/', 'Broadcast')],
     'Photo captions': [LINK('Lente ni Accla', 'https://www.facebook.com/share/p/19224rrKN5/', 'Photo caption')],
@@ -52,7 +57,27 @@ const JOURNALISM = {
       LINK("Anino't Sinag @ 19hundred Workspace", 'https://www.facebook.com/share/p/1Kt8EgdCYq/', 'Event'),
       LINK('Kapihan · July 8, 2026', 'https://www.facebook.com/share/p/1DDLC2jnU1/', 'Event'),
     ],
-    'Reels': [LINK('Darwin Babon', 'https://www.facebook.com/share/r/18w6ayw1sa/', 'Reel')],
+    'Reels': [
+      LINK('Darwin Babon', 'https://www.facebook.com/share/r/18w6ayw1sa/', 'Reel'),
+      LINK('Reel 01 · Facebook', 'https://www.facebook.com/share/r/1FPMFnVsig/', 'Reel'),
+      LINK('Reel 02 · Facebook', 'https://www.facebook.com/share/r/1CKLsNXTBi/', 'Reel'),
+      LINK('Reel 03 · Facebook', 'https://www.facebook.com/share/r/18jaCyDk9d/', 'Reel'),
+      LINK('Reel 04 · Facebook', 'https://www.facebook.com/share/r/1DV2j7iKd9/', 'Reel'),
+      LINK('Reel 05 · Facebook', 'https://www.facebook.com/share/r/19o16EVRhf/', 'Reel'),
+      LINK('Reel 06 · Facebook', 'https://www.facebook.com/share/r/14tLwnw99iG/', 'Reel'),
+      LINK('Reel 07 · Facebook', 'https://www.facebook.com/share/r/1DjxmAbp7d/', 'Reel'),
+    ],
+    'Additional videos': [
+      LINK('Video report · Facebook', 'https://www.facebook.com/share/v/18a6XBEc1a/', 'Video'),
+      LINK('Video feature · Facebook', 'https://www.facebook.com/share/v/1CizqC2wFN/', 'Video'),
+    ],
+    'More event coverage': [
+      LINK('Event coverage 01', 'https://www.facebook.com/share/p/19a7K5Gtu3/', 'Event'),
+      LINK('Event coverage 02', 'https://www.facebook.com/share/p/1CgzRRQWux/', 'Event'),
+      LINK('Event coverage 03', 'https://www.facebook.com/share/p/1PKwPTirML/', 'Event'),
+      LINK('Event coverage 04', 'https://www.facebook.com/share/p/1ctEDRLjj9/', 'Event'),
+      LINK('Event coverage 05', 'https://www.facebook.com/share/p/1HofSiZL6m/', 'Event'),
+    ],
   },
 };
 
@@ -88,7 +113,7 @@ const CREATIVE = {
     { title: 'Lace 01', src: '/images/Mock-up/lace1.png' },
     { title: 'Lace 02', src: '/images/Mock-up/lace2.png' },
   ],
-  'Magazine': [],
+  'Magazine': [], // PDF reader below; add the magazine PDF to public/magazines/carry-on-magazine.pdf
 };
 const NAV = [{ id: 'home', label: 'Home', icon: Home }, ...SECTIONS.map(({ id, label, icon }) => ({ id, label, icon }))];
 
@@ -146,7 +171,7 @@ function App() {
     </main>
     {selected && <div className="modal-backdrop" onMouseDown={e => { if (e.target === e.currentTarget) setOpen(null); }}><section className="detail-modal" role="dialog" aria-modal="true" aria-label={selected.label}><button className="close-modal" onClick={() => setOpen(null)} aria-label="Close"><X size={26} /></button><p className="modal-kicker">OPEN COMPARTMENT / {selected.number} / {selected.short}</p><h2>{selected.label}</h2><div className="modal-body">
       {open === 'journalism' && <><p className="detail-intro">A selection of published stories, field coverage, broadcasts, and digital reporting from two newsroom internships.</p><div className="pill-row">{Object.keys(JOURNALISM).map(name => <button key={name} className={publisher === name ? 'pill-active' : ''} onClick={() => setPublisher(name)}>{name}</button>)}</div>{Object.entries(JOURNALISM[publisher]).map(([category, entries]) => <div className="link-section" key={category}><h3>{category} <span>{entries.length}</span></h3><div className="article-grid">{entries.map(({ title, url, kind }) => <a href={url} key={url} target="_blank" rel="noreferrer" className="article-card"><span>{kind}</span><strong>{title}</strong><ExternalLink size={18} /></a>)}</div></div>)}</>}
-      {open === 'creative' && <><p className="detail-intro">A collection of design work, visual storytelling and creative experiments.</p><div className="pill-row">{Object.keys(CREATIVE).map(tab => <button key={tab} className={creativeTab === tab ? 'pill-active' : ''} onClick={() => setCreativeTab(tab)}>{tab}</button>)}</div>{CREATIVE[creativeTab].length ? <div className="gallery-grid">{CREATIVE[creativeTab].map((item, index) => <button key={item.src} className="gallery-item" onClick={() => setLightbox({ items: CREATIVE[creativeTab], index })}><ImageWithFallback src={item.src} alt={item.title} /><span>{item.title}<ArrowUpRight size={16} /></span></button>)}</div> : <div className="empty-gallery"><BookOpen size={35} /><h3>Magazine work coming soon</h3><p>This collection will be updated once the files are ready.</p></div>}</>}
+      {open === 'creative' && <><p className="detail-intro">A collection of design work, visual storytelling and creative experiments.</p><div className="pill-row">{Object.keys(CREATIVE).map(tab => <button key={tab} className={creativeTab === tab ? 'pill-active' : ''} onClick={() => setCreativeTab(tab)}>{tab}</button>)}</div>{creativeTab === 'Magazine' ? <div className="magazine-reader"><div className="single-detail"><BookOpen size={46} /><h3>CARRY ON — Development Communication Magazine</h3><p>Issue 1, Volume 1 · 2026 · 24 pages</p><p>Rommel G. Fangot Jr. is credited as a layout artist and contributing photographer.</p><a className="email-cta" href="/magazines/carry-on-magazine.pdf" target="_blank" rel="noreferrer"><FileText size={20} /> Read full magazine <ExternalLink size={18} /></a><p style={{fontSize:12,opacity:.7}}>The PDF will open after you add <code>public/magazines/carry-on-magazine.pdf</code> to this repository.</p></div></div> : CREATIVE[creativeTab].length ? <div className="gallery-grid">{CREATIVE[creativeTab].map((item, index) => <button key={item.src} className="gallery-item" onClick={() => setLightbox({ items: CREATIVE[creativeTab], index })}><ImageWithFallback src={item.src} alt={item.title} /><span>{item.title}<ArrowUpRight size={16} /></span></button>)}</div> : <div className="empty-gallery"><BookOpen size={35} /><h3>Magazine work coming soon</h3><p>This collection will be updated once the files are ready.</p></div>}</>}
       {open === 'experience' && <div className="timeline"><div><span>JUNE — AUGUST 2026</span><h3>North Luzon Monitor</h3><strong>Digital News Journalist Intern</strong><p>Practical newsroom experience involving published news articles, digital reporting, photo captions, event coverage, reels and broadcast co-hosting.</p></div><div><span>MAY — JUNE 2026</span><h3>Amianan Balita Ngayon</h3><strong>Newspaper Journalist Intern</strong><p>Experience in print and digital journalism, producing published local news stories, Facebook coverage and video content.</p></div></div>}
       {open === 'education' && <div className="single-detail"><GraduationCap size={54} /><h3>Bachelor of Arts in Communication</h3><p>Graduated September 26, 2026.</p><span>Class of 2026 · Communication, journalism and media</span></div>}
       {open === 'about' && <div className="about-detail"><ImageWithFallback src="/images/profile.jpg" alt="Rommel Fangot Jr." /><div><h3>Hi, I'm Rommel.</h3><p>I'm a Bachelor of Arts in Communication graduate with hands-on experience in print and digital journalism, news writing, field reporting, creative content production, and visual storytelling. Through my internships at Amianan Balita Ngayon and North Luzon Monitor, I've had opportunities to explore local stories, cover community events, contribute published articles, and work with digital media formats.</p><p>Beyond reporting, I enjoy bringing ideas to life through graphic design, video editing, and other creative projects. I believe meaningful communication begins with curiosity, careful listening, and a commitment to telling stories that matter. I'm excited to continue learning, collaborate with creative teams, and contribute to projects that inform, connect, and inspire audiences.</p><div className="tools-line"><strong>Creative toolkit</strong><span>Canva · Adobe Photoshop · CapCut · Figma · Microsoft Office · Google Workspace</span></div></div></div>}
