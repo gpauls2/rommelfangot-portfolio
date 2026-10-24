@@ -99,6 +99,14 @@ const CREATIVE = {
     { title: 'Poster 12', src: '/images/Posters-Pubmats/pb12.png' },
     { title: 'Poster 13', src: '/images/Posters-Pubmats/pb13.png' },
     { title: 'Poster 14', src: '/images/Posters-Pubmats/pb14.png' },
+    { title: 'Poster 15', src: '/images/Posters-Pubmats/pb15.png' },
+    { title: 'Poster 16', src: '/images/Posters-Pubmats/pb16.png' },
+    { title: 'Poster 17', src: '/images/Posters-Pubmats/pb17.png' },
+    { title: 'Poster 18', src: '/images/Posters-Pubmats/pb18.png' },
+    { title: 'Poster 19', src: '/images/Posters-Pubmats/pb19.png' },
+  ],
+  'Other Designs': [
+    { title: 'Design 1', src: '/images/Posters-Pubmats/design1.jpeg' },
   ],
   'Facebook Frames': [
     { title: 'North Luzon Monitor · Frame 01', src: '/images/Facebook Profile & Picture Frame/fb1.png' },
